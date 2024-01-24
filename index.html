@@ -11,28 +11,35 @@
     <header class="header">
         <div class="container grid-container">
             <a href="index.html">
-                <img src="" alt="" width="40" height="32">
-            </a>
+                <img src="path/to/your/logo.png" alt="Logo" width="40" height="32">
+            </a>            
         </div>
     </header>
     
     <div class="container pb-3">
+        <h1>Inscriptador Proyecto</h1>
         <div class="grid gap-3 box-container">
             <div class="box box1 bg-tertiary border rounded">
-                <textarea class="textarea" placeholder="Ingrese el texto que desea inscriptar"></textarea>
+                <textarea class="textarea" id="input_txt" placeholder="Ingrese el texto que desea cifrar/descifrar"></textarea>
                 <div class="button-container">
-                    <button class="large-button">Encriptar</button>
-                    <button class="large-button" disabled>Desencriptar</button>
+                    <button class="large-button" onclick="encryptionProcess()">Encriptar</button>
+                    <button class="large-button" id="btn_decrypt" onclick="decryptionProcess()" disabled>Desencriptar</button>
                 </div>
             </div>
+            <!-- Quiero que este componente aparezca junsto aqui -->
             <div class="box box2 bg-tertiary border rounded ml-2">
                 <div class="text-container">
-                    <p>Your Text Here</p>
-                    <button class="small-button"><i class="bi bi-clipboard-plus-fill"></i></button>
+                    <p class="result-text" id="result-text">...</p>
+                    <button class="small-button" id="btn_copy" onclick="copyTextEcrypted()" disabled><i class="bi bi-clipboard-plus-fill"></i></button>
                 </div>
             </div>
+            <!--  -->
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Inscriptador Proyecto. All rights reserved.</p>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>
