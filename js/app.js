@@ -70,7 +70,7 @@ function decryptionProcess() {
 function letterDecryptionProcess(inputLetter) {
     let letter = inputLetter.toLowerCase(); 
 
-    let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
+    let listLettersToProcess = { "e":"enter", "i":"imes", "a": "ai", "o": "ober", "u": "ufat" };
 
     Object.entries(listLettersToProcess).forEach(function ([key, value]) {
         const regex = new RegExp(value, 'g');

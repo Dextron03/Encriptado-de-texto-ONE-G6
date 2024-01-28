@@ -40,8 +40,9 @@ body {
 /* Seccion Main */
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 52px;
+    font-size: 42px;
     padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 a {
