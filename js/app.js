@@ -23,16 +23,29 @@ function copyTextEcrypted() {
 
 function encryptionProcess() {
     let input_txt = document.getElementById("input_txt").value;
-    // let lyricsList = [];
 
-    // for (let letter = 0; letter < input_txt.length; letter++) {
-    //     lyricsList.push(processEncryptedLetter(input_txt[letter]));
-    // }
+    let encryptedWord = processEncryptedLetter(input_txt)
 
-    // let encryptedWord = lyricsList.join("");
-    // toggleButtonState("btn_decrypt", true);
-    // toggleButtonState("btn_copy", true);
-    // assignTextElement("result-text", encryptedWord);
+    toggleButtonState("btn_decrypt", true);
+    toggleButtonState("btn_copy", true);
+    assignTextElement("result-text", encryptedWord);
+}
+
+
+function processEncryptedLetter(inputLetter) {
+    let letter = inputLetter.toLowerCase();
+    let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
+    letter = letter.split("");
+
+    letter.forEach(function (char, index) {
+        Object.entries(listLettersToProcess).forEach(function ([key, value]) {
+            if (char === key) {
+                letter[index] = value;
+            }
+        });
+    });
+
+    return letter.join("");
 }
 
 function decryptionProcess() {
@@ -49,18 +62,7 @@ function decryptionProcess() {
     // assignTextElement("result-text", decryptedWord);
 }
 
-function processEncryptedLetter(letter) {
-    // letter = letter.toLowerCase();
-    // let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
 
-    // Object.entries(listLettersToProcess).forEach(function ([key, value]) {
-    //     if (letter === key) {
-    //         letter = value;
-    //     }
-    // });
-
-    // return letter;
-}
 
 function letterDecryptionProcess(letter) {
     // letter = letter.toLowerCase();
