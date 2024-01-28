@@ -1,4 +1,4 @@
-*{
+* {
     font-family: 'Inter', sans-serif;
 }
 
@@ -10,7 +10,34 @@ body {
     opacity: 5;
 }
 
+/* Header  */
+.header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #007BFF;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    margin-right: 10px;
+}
+
+
+/* Seccion Main */
 h1 {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 52px;
@@ -22,19 +49,12 @@ a {
     height: 42px;
 }
 
-.header {
-    padding: 1rem 0;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6;
-}
-
 .container {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 .grid-container {
@@ -78,7 +98,6 @@ a {
     color: #007BFF;
 }
 
-
 .border {
     border: 1px solid #dee2e6;
 }
@@ -93,6 +112,7 @@ a {
     padding: 20px;
 }
 
+/* Seccion Buttons  */
 .small-button {
     padding: 8px 16px;
     font-size: 14px;
@@ -110,7 +130,7 @@ a {
     color: #fff;
 }
 
-.small-button:disabled{
+.small-button:disabled {
     background: #898989;
     border: 1px solid #898989;
 }
@@ -119,23 +139,11 @@ a {
 .small-button:disabled:hover {
     background: #898989;
     border: 1px solid #898989;
-    color: #fff; 
-    cursor: not-allowed; 
+    color: #fff;
+    cursor: not-allowed;
 }
 
-.large-button:disabled{
-    background: #898989;
-    border: 1px solid #898989;
-}
-
-.large-button:disabled,
-.large-button:disabled:hover {
-    background: #898989;
-    border: 1px solid #898989;
-    color: #fff; 
-    cursor: not-allowed; 
-}
-
+/* Textarea */
 .textarea {
     width: 97.8%;
     background: #dee2e6;
@@ -143,11 +151,11 @@ a {
     margin-bottom: 10px;
     padding: 10px;
     border: none;
-    border-radius: 0.375rem; 
+    border-radius: 0.375rem;
     font-size: 20px;
-
 }
 
+/* Sección de botones grandes*/
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -167,21 +175,20 @@ a {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
-
 .large-button:hover {
     background-color: #0056b3;
     color: #fff;
 }
 
+/* Footer */
 .footer {
-    background-color: #007BFF;
+    background-color: #212529;
     color: #fff;
     padding: 20px;
     text-align: center;
     width: 100%;
+    margin-top: 25px;
 }
-
 
 .footer p {
     margin: 0;
@@ -195,4 +202,22 @@ a {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.social-section {
+    margin-bottom: 1px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.social-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
 }

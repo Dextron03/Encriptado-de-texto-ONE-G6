@@ -7,7 +7,6 @@ function toggleButtonState(buttonId, isEnabled) {
     }
 }
 
-
 function assignTextElement(element, text) {
     let elementoHTML = document.getElementById(element);
     elementoHTML.innerHTML = text;
@@ -20,17 +19,20 @@ function copyTextEcrypted() {
     toggleButtonState("btn_copy", true);
 }
 
-
 function encryptionProcess() {
     let input_txt = document.getElementById("input_txt").value;
 
-    let encryptedWord = processEncryptedLetter(input_txt)
+    // Verificar si el cuadro de texto está vacío
+    if (!input_txt.trim()) {
+        alert("Ingrese una palabra antes de encriptar.");
+        return;
+    }
 
-    toggleButtonState("btn_decrypt", true);
+    let encryptedWord = processEncryptedLetter(input_txt);
+
     toggleButtonState("btn_copy", true);
     assignTextElement("result-text", encryptedWord);
 }
-
 
 function processEncryptedLetter(inputLetter) {
     let letter = inputLetter.toLowerCase();
@@ -50,30 +52,27 @@ function processEncryptedLetter(inputLetter) {
 
 function decryptionProcess() {
     let input_txt = document.getElementById("input_txt").value;
-    // let lyricsList = [];
 
-    // for (let letter = 0; letter < input_txt.length; letter++) {
-    //     lyricsList.push(letterDecryptionProcess(input_txt[letter]));
-    // }
+    if (!input_txt.trim()) {
+        alert("Ingrese una palabra antes de desencriptar.");
+        return;
+    }
 
-    // let decryptedWord = lyricsList.join("");
+    let decryptedWord = letterDecryptionProcess(input_txt);
 
-    // toggleButtonState("btn_copy", true);
-    // assignTextElement("result-text", decryptedWord);
+    toggleButtonState("btn_copy", true);
+    assignTextElement("result-text", decryptedWord);
 }
 
+function letterDecryptionProcess(inputLetter) {
+    let letter = inputLetter.toLowerCase(); 
 
+    let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
 
-function letterDecryptionProcess(letter) {
-    // letter = letter.toLowerCase();
-    // let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
+    Object.entries(listLettersToProcess).forEach(function ([key, value]) {
+        const regex = new RegExp(value, 'g');
+        letter = letter.replace(regex, key);
+    });
 
-    // // Invertimos las claves y valores para facilitar la búsqueda inversa
-    // let invertedList = {};
-    // Object.entries(listLettersToProcess).forEach(([key, value]) => {
-    //     invertedList[value] = key;
-    // });
-
-    // return invertedList[letter] || letter;
-
+    return letter;
 }
