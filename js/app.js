@@ -16,6 +16,7 @@ function assignTextElement(element, text) {
 function copyTextEcrypted() {
     let textToCopy = document.getElementById("result-text").textContent;
     document.getElementById("input_txt").value = textToCopy;
+    assignTextElement("result-text", "...")
     toggleButtonState("btn_copy", true);
 }
 
@@ -46,6 +47,8 @@ function processEncryptedLetter(inputLetter) {
             }
         });
     });
+
+    document.getElementById("result-image").style.display = "none";
 
     return letter.join("");
 }
