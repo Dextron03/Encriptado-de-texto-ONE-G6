@@ -33,6 +33,7 @@ function encryptionProcess() {
 
     toggleButtonState("btn_copy", true);
     assignTextElement("result-text", encryptedWord);
+    assignTextElement("title_content_text", "Texto Encriptado.");
 }
 
 function processEncryptedLetter(inputLetter) {
@@ -65,6 +66,7 @@ function decryptionProcess() {
 
     toggleButtonState("btn_copy", true);
     assignTextElement("result-text", decryptedWord);
+    assignTextElement("title_content_text", "Texto Desencriptar")
 }
 
 function letterDecryptionProcess(inputLetter) {
