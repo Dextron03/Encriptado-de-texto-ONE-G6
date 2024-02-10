@@ -7,6 +7,12 @@ function toggleButtonState(buttonId, isEnabled) {
     }
 }
 
+function copyTxt() {
+    var texto = document.getElementById("input_txt");
+    texto.select();
+    document.execCommand("copy"); 
+}
+
 function assignTextElement(element, text) {
     let elementoHTML = document.getElementById(element);
     elementoHTML.innerHTML = text;
@@ -18,6 +24,7 @@ function copyTextEcrypted() {
     document.getElementById("input_txt").value = textToCopy;
     assignTextElement("result-text", "...")
     toggleButtonState("btn_copy", true);
+    copyTxt();
 }
 
 function encryptionProcess() {
