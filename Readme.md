@@ -21,9 +21,13 @@ Oracle Next Education (ONE), en colaboración con Alura Latam, presenta el desaf
 ![Desencriptar](img/Desencriptar.gif)
 
 ## Información adicional
+Este reto/mini proyecto fue realizado con las siguientes tecnologias:
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,md)](https://skillicons.dev)
+
 **Comunidad y Soporte:** Únete a la comunidad ONE en línea para discutir ideas, compartir conocimientos y obtener soporte adicional.
 
 ## Autor/es
-<img src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" width="12"> [Braily_rs35](https://www.instagram.com/braily_rs35/ "Braily_rs35")
+[![My Skills](https://skillicons.dev/icons?i=instagram)](https://skillicons.dev) [Braily_rs35](https://www.instagram.com/braily_rs35/ "Braily_rs35")
 
-<img src="https://www.vectorlogo.zone/logos/gmail/gmail-icon.svg" width="14"> brailyrs03@gmail.com
+[![My Skills](https://skillicons.dev/icons?i=gmail)](https://skillicons.dev) brailyrs03@gmail.com
