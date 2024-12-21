@@ -1,55 +1,51 @@
-function toggleButtonState(buttonId, isEnabled) {
-    let button = document.getElementById(buttonId);
-    if (isEnabled) {
-        button.removeAttribute('disabled');
-    } else {
-        button.setAttribute('disabled', 'true');
-    }
+const toggleButtonState = (buttonId, isEnabled) => {
+    const $button = document.getElementById(buttonId);
+
+    (isEnabled) ? $button.removeAttribute('disabled') : $button.setAttribute('disabled', 'true');
 }
 
-function copyTxt() {
-    var texto = document.getElementById("input_txt");
-    texto.select();
+const copyTxt = () => {
+    const $texto = document.getElementById("input_txt");
+    $texto.select();
     document.execCommand("copy"); 
 }
 
-function assignTextElement(element, text) {
-    let elementoHTML = document.getElementById(element);
-    elementoHTML.innerHTML = text;
-    return;
+const assignTextElement = (element, text) => {
+    const $elementoHTML = document.getElementById(element);
+    $elementoHTML.innerHTML = text;
 }
 
-function copyTextEcrypted() {
-    let textToCopy = document.getElementById("result-text").textContent;
-    document.getElementById("input_txt").value = textToCopy;
+const copyTextEcrypted = () => {
+    const $textToCopy = document.getElementById("result-text").textContent;
+    document.getElementById("input_txt").value = $textToCopy;
     assignTextElement("result-text", "...")
     toggleButtonState("btn_copy", true);
     copyTxt();
 }
 
-function encryptionProcess() {
-    let input_txt = document.getElementById("input_txt").value;
+const encryptionProcess = () => {
+    const $inputTxt = document.getElementById("input_txt").value;
 
     // Verificar si el cuadro de texto está vacío
-    if (!input_txt.trim()) {
+    if (!$inputTxt.trim()) {
         alert("Ingrese una palabra antes de encriptar.");
         return;
     }
 
-    let encryptedWord = processEncryptedLetter(input_txt);
+    let encryptedWord = processEncryptedLetter($inputTxt);
 
     toggleButtonState("btn_copy", true);
     assignTextElement("result-text", encryptedWord);
     assignTextElement("title_content_text", "Texto Encriptado.");
 }
 
-function processEncryptedLetter(inputLetter) {
+const processEncryptedLetter = (inputLetter) => {
     let letter = inputLetter.toLowerCase();
-    let listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
+    const listLettersToProcess = { "e": "enter", "i": "imes", "a": "ai", "o": "ober", "u": "ufat" };
     letter = letter.split("");
 
-    letter.forEach(function (char, index) {
-        Object.entries(listLettersToProcess).forEach(function ([key, value]) {
+    letter.forEach((char, index) => {
+        Object.entries(listLettersToProcess).forEach(([key, value])=> {
             if (char === key) {
                 letter[index] = value;
             }
@@ -61,30 +57,38 @@ function processEncryptedLetter(inputLetter) {
     return letter.join("");
 }
 
-function decryptionProcess() {
-    let input_txt = document.getElementById("input_txt").value;
+const decryptionProcess = () => {
+    const $inputTxt = document.getElementById("input_txt").value;
 
-    if (!input_txt.trim()) {
+    if (!$inputTxt.trim()) {
         alert("Ingrese una palabra antes de desencriptar.");
         return;
     }
 
-    let decryptedWord = letterDecryptionProcess(input_txt);
+    let decryptedWord = letterDecryptionProcess($inputTxt);
 
     toggleButtonState("btn_copy", true);
     assignTextElement("result-text", decryptedWord);
     assignTextElement("title_content_text", "Texto Desencriptar")
 }
 
-function letterDecryptionProcess(inputLetter) {
+const letterDecryptionProcess = (inputLetter) => {
     let letter = inputLetter.toLowerCase(); 
 
-    let listLettersToProcess = { "e":"enter", "i":"imes", "a": "ai", "o": "ober", "u": "ufat" };
+    const objLettersToProcess = { "e":"enter", "i":"imes", "a": "ai", "o": "ober", "u": "ufat" };
 
-    Object.entries(listLettersToProcess).forEach(function ([key, value]) {
+    Object.entries(objLettersToProcess).forEach(([key, value]) => {
         const regex = new RegExp(value, 'g');
         letter = letter.replace(regex, key);
     });
 
     return letter;
 }
+
+const $botonEncriptar = document.getElementById("btn-encriptar"),
+$botonDesencriptar = document.getElementById("btn-decrypt"),
+$btnCopy = document.getElementById("btn_copy");
+
+$botonEncriptar.onclick = encryptionProcess;
+$botonDesencriptar.onclick = decryptionProcess;
+$btnCopy.onclick = copyTextEcrypted;
